@@ -19,24 +19,61 @@ object DataService {
     )
 
     val hats = listOf(
-            Product("Devslopes Graphic Beanie", "$18", "hat01"),
-            Product("Devslopes Hat Black", "$20", "hat02"),
-            Product("Devslopes Hat White", "$19", "hat03"),
-            Product("Devslopes Hat Snapback", "$23", "hat04")
+            Product("Devslopes Graphic Beanie", "$18", "hat1"),
+            Product("Devslopes Hat Black", "$20", "hat2"),
+            Product("Devslopes Hat White", "$19", "hat3"),
+            Product("Devslopes Hat Snapback", "$23", "hat4"),
+            Product("Devslopes Graphic Beanie", "$18", "hat1"),
+            Product("Devslopes Hat Black", "$20", "hat2"),
+            Product("Devslopes Hat White", "$19", "hat3"),
+            Product("Devslopes Hat Snapback", "$23", "hat4"),
+            Product("Devslopes Graphic Beanie", "$18", "hat1"),
+            Product("Devslopes Hat Black", "$20", "hat2"),
+            Product("Devslopes Hat White", "$19", "hat3"),
+            Product("Devslopes Hat Snapback", "$23", "hat4")
     )
 
     val hoodies = listOf(
-            Product("Devslopes Hoodie Gray", "$28", "hoodie01"),
-            Product("Devslopes Hoodie Red", "$30", "hoodie02"),
-            Product("Devslopes Gray Hoodie", "$28", "hoodie03"),
-            Product("Devslopes Black Hoodie", "$29", "hoodie04")
+            Product("Devslopes Hoodie Gray", "$28", "hoodie1"),
+            Product("Devslopes Hoodie Red", "$30", "hoodie2"),
+            Product("Devslopes Gray Hoodie", "$28", "hoodie3"),
+            Product("Devslopes Black Hoodie", "$29", "hoodie4"),
+            Product("Devslopes Hoodie Gray", "$28", "hoodie1"),
+            Product("Devslopes Hoodie Red", "$30", "hoodie2"),
+            Product("Devslopes Gray Hoodie", "$28", "hoodie3"),
+            Product("Devslopes Black Hoodie", "$29", "hoodie4"),
+            Product("Devslopes Hoodie Gray", "$28", "hoodie1"),
+            Product("Devslopes Hoodie Red", "$30", "hoodie2"),
+            Product("Devslopes Gray Hoodie", "$28", "hoodie3"),
+            Product("Devslopes Black Hoodie", "$29", "hoodie4")
     )
 
     val shirts = listOf(
-            Product("Devslopes Shirt Black", "$40", "shirt01"),
-            Product("Devslopes Badge Light Gray", "$30", "shirt02"),
-            Product("Devslopes Logo Shirt Red", "$22", "shirt03"),
-            Product("Devslopes Hustle", "$25", "shirt04"),
-            Product("Kickflip Studios", "$27", "shirt05")
+            Product("Devslopes Shirt Black", "$40", "shirt1"),
+            Product("Devslopes Badge Light Gray", "$30", "shirt2"),
+            Product("Devslopes Logo Shirt Red", "$22", "shirt3"),
+            Product("Devslopes Hustle", "$25", "shirt4"),
+            Product("Kickflip Studios", "$27", "shirt5"),
+            Product("Devslopes Shirt Black", "$40", "shirt1"),
+            Product("Devslopes Badge Light Gray", "$30", "shirt2"),
+            Product("Devslopes Logo Shirt Red", "$22", "shirt3"),
+            Product("Devslopes Hustle", "$25", "shirt4"),
+            Product("Kickflip Studios", "$27", "shirt5"),
+            Product("Devslopes Shirt Black", "$40", "shirt1"),
+            Product("Devslopes Badge Light Gray", "$30", "shirt2"),
+            Product("Devslopes Logo Shirt Red", "$22", "shirt3"),
+            Product("Devslopes Hustle", "$25", "shirt4"),
+            Product("Kickflip Studios", "$27", "shirt5")
     )
+
+    val digitalGoods = listOf<Product>()
+
+    fun getProducts(category : String) : List<Product> {
+        return when (category) { //switch statement from java
+            "SHIRTS" -> shirts
+            "HATS" -> hats
+            "HOODIES" -> hoodies
+            else -> digitalGoods //default in switch case for java
+        }
+    }
 }
