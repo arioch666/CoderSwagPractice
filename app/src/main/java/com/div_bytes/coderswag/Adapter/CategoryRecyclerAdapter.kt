@@ -14,7 +14,7 @@ import com.div_bytes.coderswag.R
  *@author div@hello.com (Div)
  */
 
-class CategoryRecyclerAdapter(val context : Context, val categories : List<Category>) : RecyclerView.Adapter<CategoryRecyclerAdapter.Holder>() {
+class CategoryRecyclerAdapter(val context : Context, val categories : List<Category>, val itemClick : (Category) -> Unit) : RecyclerView.Adapter<CategoryRecyclerAdapter.Holder>() {
 
     override fun onBindViewHolder(holder: Holder?, position: Int) {
         holder?.bindCategory(categories[position], context)
@@ -26,17 +26,21 @@ class CategoryRecyclerAdapter(val context : Context, val categories : List<Categ
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) : Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.category_list_item, parent, false)
-        return Holder(view)
+        return Holder(view, itemClick)
     }
 
-    inner class Holder(itemView : View?) : RecyclerView.ViewHolder(itemView) {
+    inner class Holder(itemView : View?, val itemClick : (Category) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val categoryImageView = itemView?.findViewById<ImageView>(R.id.categoryImageView)
         val categoryTextView = itemView?.findViewById<TextView>(R.id.categoryTextView)
+
 
         fun bindCategory(category : Category, context : Context) {
             val resourceId = context.resources.getIdentifier(category.image, "drawable", context.packageName)
             categoryImageView?.setImageResource(resourceId)
             categoryTextView?.text = category.title
+            itemView.setOnClickListener {
+                itemClick(category)
+            }
         }
 
     }
